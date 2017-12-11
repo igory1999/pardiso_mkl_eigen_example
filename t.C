@@ -8,7 +8,7 @@
 using namespace std;
 using myMatrix = Eigen::SparseMatrix<double,Eigen::RowMajor,MKL_INT>;
 
-void set_a(int nz, int n, myMatrix& mat)
+void set_a(int nz, myMatrix& mat)
 {
   using Triplet = Eigen::Triplet<double>;
   vector<Triplet> tripletList;
@@ -90,7 +90,7 @@ int main(int argc, char **argv)
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   int comm =  MPI_Comm_c2f( MPI_COMM_WORLD );
 
-  set_a(nz,n,A);
+  set_a(nz,A);
   a = A.valuePtr();
   for(int i = 0; i < n; i++) ia[i]=A.outerIndexPtr()[i];
   ia[n] = nz; 
