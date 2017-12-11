@@ -2,8 +2,8 @@
 
 
 To set up an environment, do:
-   '''
-   source env.sh
-   '''
+'''
+source env.sh
+'''
 
 For more examples, see $MKLROOT/examples/examples_cluster_c.tgz
