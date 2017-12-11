@@ -1,5 +1,5 @@
 run:	t
-	mpirun -n 2 ./t
+	OMP_NUM_THREADS=4 mpirun -n 2 ./t
 t:	t.o
 	mpiicpc -o t -std=c++11 -L${MKLROOT}/lib/intel64 -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -lmkl_blacs_intelmpi_ilp64 -liomp5 -lpthread  -ldl t.o -lm
 t.o:	t.C
