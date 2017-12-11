@@ -10,22 +10,22 @@ using myMatrix = Eigen::SparseMatrix<double,Eigen::RowMajor,MKL_INT>;
 
 void set_a(int nz, int n, myMatrix& mat)
 {
-  typedef Eigen::Triplet<double> T;
-  std::vector<T> tripletList;
+  using Triplet = Eigen::Triplet<double>;
+  vector<Triplet> tripletList;
   tripletList.reserve(nz);
-  tripletList.push_back(T(0,0,1));
-  tripletList.push_back(T(0,1,-1));
-  tripletList.push_back(T(0,3,-3));
-  tripletList.push_back(T(1,0,-2));
-  tripletList.push_back(T(1,1,5));
-  tripletList.push_back(T(2,2,4));
-  tripletList.push_back(T(2,3,6));
-  tripletList.push_back(T(2,4,4));
-  tripletList.push_back(T(3,0,-3));
-  tripletList.push_back(T(3,2,6));
-  tripletList.push_back(T(3,3,7));
-  tripletList.push_back(T(4,1,8));
-  tripletList.push_back(T(4,4,-5));
+  tripletList.push_back(Triplet(0,0,1));
+  tripletList.push_back(Triplet(0,1,-1));
+  tripletList.push_back(Triplet(0,3,-3));
+  tripletList.push_back(Triplet(1,0,-2));
+  tripletList.push_back(Triplet(1,1,5));
+  tripletList.push_back(Triplet(2,2,4));
+  tripletList.push_back(Triplet(2,3,6));
+  tripletList.push_back(Triplet(2,4,4));
+  tripletList.push_back(Triplet(3,0,-3));
+  tripletList.push_back(Triplet(3,2,6));
+  tripletList.push_back(Triplet(3,3,7));
+  tripletList.push_back(Triplet(4,1,8));
+  tripletList.push_back(Triplet(4,4,-5));
   mat.setFromTriplets(tripletList.begin(), tripletList.end());
   mat.makeCompressed();
 }
